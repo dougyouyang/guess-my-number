@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "please pick a number that the computer will guess" << endl;
+    int x;
+    cin >> x;
+    int y = 100;
+    int a = 0;
+    int b = 100;
+    int counter = 0;
+    int feedback = -1;
+
+    do
+    {
+        if (feedback == 1){
+            y = y+(b-y)/2;
+        }
+        else if (feedback == -1){
+            y = (y+a)/2;
+        }
+        cout << y << endl;
+        cout << "if the number is too high then enter 1 or if it's too low then enter -1, if I got your number then enter 0" << endl;
+        cin >> feedback;
+
+        if (y>a && feedback == 1){
+            a = y;
+        }
+        else if (y<b && feedback == -1){
+            b = y;
+        }
+        counter++;
+
+    }
+    while (feedback);
+
+    cout << "I got it in " << counter << " times" << endl;
+    return 0;
+}
